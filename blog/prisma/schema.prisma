@@ -12,3 +12,44 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  name      String
+  address   Address?
+  posts     Post[]
+
+  @@unique([email])
+}
+
+model Address {
+  street String
+  city   String
+  state  String
+  zip    String
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  slug      String  @unique
+  title     String
+  body      String
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+  comments  Comment[]
+
+  @@unique([slug])
+}
+
+model Comment {
+  id        Int     @id @default(autoincrement())
+  comment   String
+  post      Post    @relation(fields: [postId], references: [id])
+  postId    Int
+}
