@@ -113,9 +113,9 @@ const Page: React.FC = () => {
       </main>
 
       {/* ===== FOOTER ===== */}
-      {/* <footer className="footer bg-gray-900 text-white p-4 text-center">
+      <footer className="footer bg-gray-900 text-white p-4 text-center">
         <p>© 2024 Nom de l'entreprise - Tous droits réservés</p>
-      </footer> */}
+      </footer>
     </div>
   );
 };

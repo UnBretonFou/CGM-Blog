@@ -1,8 +1,9 @@
 
+
 export default function Header(){
     return(
-        <header> 
-            <h1>Bonjour</h1>
-        </header>
-        )
-}
+        <div className="border-b2 border-b-gray-700">
+            <h3>Boardy</h3>
+        </div>
+    )
+} 
